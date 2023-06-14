@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import * as csvWriter from "csv-write-stream";
-import * as fs from "fs";
+const csvWriter = require("csv-write-stream");
+const fs = require("fs");
 
 function getCsvFileLength(csvFilePath: string) {
   const fileContent = fs.readFileSync(csvFilePath, "utf8");
@@ -14,7 +14,6 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) {
-
   if (req.method === "POST") {
     const body = req.body;
     const csvFilePath = "data.csv";

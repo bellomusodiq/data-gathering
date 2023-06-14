@@ -1,17 +1,8 @@
-"use client";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import axios from "axios";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
-import { env } from "process";
-
-const BASE_URL =
-  env.NODE_ENV === "production"
-    ? "https://ecommerce-data-gathering.vercel.app/"
-    : "http://localhost:3000";
 
 export default function Home() {
   const [prompt, setPrompt] = useState<string>("");
@@ -42,10 +33,10 @@ export default function Home() {
     <main className={styles.main}>
       <h1>Thank you for the help</h1>
       <p>
-        This goal here is to generate broad dataset for e-commerce and SMEs,
+        {`This goal here is to generate broad dataset for e-commerce and SMEs,
         where important information such as product name, quantity, color, size,
-        price, rating, gender etc. from the customer's input can be extracted
-        machine learning{" "}
+        price, rating, gender etc. from the customer's input can be
+        extracted machine learning`}
       </p>
       <p>
         In the textbox below, assume you are trying to make an order for
@@ -54,11 +45,11 @@ export default function Home() {
         size(fasion)
       </p>
       <p>
-        E.g. "I would like to order 2 medium size t-shirts in white and black
-        colors respectively, price ranging from $10 to $20"
+        {`E.g. "I would like to order 2 medium size t-shirts in white and black
+        colors respectively, price ranging from $10 to $20"`}
       </p>
       <p>
-        E.g. "Do you have any google pixel phone available in black and white"
+        {`E.g. "Do you have any google pixel phone available in black and white"`}
       </p>
       <textarea
         value={prompt}
