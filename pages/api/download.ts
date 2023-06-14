@@ -8,7 +8,15 @@ export default function handler(
   res: NextApiResponse<any>
 ) {
   if (req.method === "GET") {
+    const delete_ = req.query.delete;
     const fileContent = fs.readFileSync("data.csv", "utf8");
+    if (delete_) {
+      fs.unlink("data.csv", (err: any) => {
+        if (err) {
+        } else {
+        }
+      });
+    }
     res.send(fileContent);
   }
 }

@@ -6,7 +6,7 @@ const fs = require("fs");
 function getCsvFileLength(csvFilePath: string) {
   const fileContent = fs.readFileSync(csvFilePath, "utf8");
   const rows = fileContent.split("\n");
-  const length = rows.length - 2; // Subtract 1 to exclude the header row (if any)
+  const length = rows.length - 1; // Subtract 1 to exclude the header row (if any)
   return length;
 }
 
